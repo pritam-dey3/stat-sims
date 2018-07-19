@@ -1,6 +1,7 @@
 import random
 
 a = []
+urn = []
 
 class box:
   def __init__(self,num=0, left = None, right = None):
@@ -19,11 +20,22 @@ def initiate():
     a[i-1].right = a[i]
   a[0].left = a[9]
   a[9].right = a[0]
+  for i in range(10):
+    urn.append([])
 
 def distribute():
   for i in range(100):
-    a[random.randrange(1,11)].donate_ball()
-  
-initiate()
-for i in range(10):
-  print(a[i].ball_count)
+    a[random.randrange(0,10)].donate_ball()
+
+def reset():
+  for i in range(10):
+    a[i].ball_count = 0
+
+
+def mainloop():
+  initiate()
+  distribute()
+  for i in range(10):
+    urn[i].append(a[i].ball_count)
+
+mainloop()
