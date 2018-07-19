@@ -34,8 +34,11 @@ def reset():
 
 def mainloop():
   initiate()
-  distribute()
   for i in range(10):
-    urn[i].append(a[i].ball_count)
+    distribute()
+    for i in range(10):
+      urn[i].append(a[i].ball_count)
+    reset()
 
 mainloop()
+print(urn)
