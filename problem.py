@@ -31,14 +31,27 @@ def reset():
   for i in range(10):
     a[i].ball_count = 0
 
+def cov(x,y):
+  mean_x = sum(x) / len(x)
+  mean_y = sum(y) / len(y)
+
+  c = sum((a - mean_x) * (b - mean_y) for (a,b) in zip(x,y)) / len(x)
+  return c
+  
 
 def mainloop():
   initiate()
-  for i in range(10):
+  for i in range(1000):
     distribute()
     for i in range(10):
       urn[i].append(a[i].ball_count)
     reset()
 
 mainloop()
-print(urn)
+m = []
+for i in range(10):
+  print("\n")
+  for j in range(10):
+    print(cov(urn[i],urn[j]),end="")
+    print("  ")
+#print(urn)
