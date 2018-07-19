@@ -52,8 +52,7 @@ m = []
 for i in range(10):
   print("\n")
   for j in range(10):
-    print(cov(urn[i],urn[j]),end="")
-    print("  ")
+    print(cov(urn[i],urn[j]),end="  ")
 #print(urn)
 '''
 15.826593750000375  
